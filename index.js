@@ -82,11 +82,11 @@ app.post('/getAppointmentById', (req, res) => {
 // post
 app.post('/addAppointment', (req, res) => {
   const patientsDetails = req.body
-  orderDetails.orderTime = new Date()
+  patientsDetails.orderTime = new Date()
   client = new MongoClient(uri, { useNewUrlParser: true });
   client.connect(err => {
     const collection = client.db("doctorsPortal").collection("appointments");
-    collection.insertOne(orderDetails, (err, result) => {
+    collection.insertOne(patientsDetails, (err, result) => {
       if (err) {
         console.log(err)
         res.status(500).send({ message: err })
