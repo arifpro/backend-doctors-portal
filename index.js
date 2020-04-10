@@ -101,6 +101,30 @@ app.post('/addAppointment', (req, res) => {
 
 
 
+
+app.post('/updateAppointment', (req, res) => {
+  const oldData = req.body
+  console.log(oldData);
+  var myquery = { address: "Valley 345" };
+  var newvalues = { $set: { name: "Michael", address: "Canyon 123" } };
+  client = new MongoClient(uri, { useNewUrlParser: true });
+  // client.connect(err => {
+  //   const collection = client.db("doctorsPortal").collection("appointments");
+  //   collection.updateOne(myquery, newvalues, (err, result) => {
+  //     if (err) {
+  //       console.log(err)
+  //       res.status(500).send({ message: err })
+  //     } else {
+  //       res.send(result.ops[0]);
+  //     }
+
+  //   })
+  //   client.close();
+  // });
+}) 
+
+
+
 // app.post('/addProduct', (req, res) => {
 //     client = new MongoClient(uri, { useNewUrlParser: true });
 //     const product = req.body
